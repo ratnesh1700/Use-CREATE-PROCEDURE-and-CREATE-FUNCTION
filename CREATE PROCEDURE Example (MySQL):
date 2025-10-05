@@ -1,0 +1,13 @@
+sql
+DELIMITER //
+CREATE PROCEDURE GetCustomerByCity(IN cityName VARCHAR(50))
+BEGIN
+    SELECT CustomerID, CustomerName, City
+    FROM Customers
+    WHERE City = cityName;
+END //
+DELIMITER ;
+To call:
+
+sql
+CALL GetCustomerByCity('London');
