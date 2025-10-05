@@ -1,0 +1,15 @@
+sql
+CREATE PROCEDURE GetCustomerByCity
+    @City nvarchar(30)
+AS
+BEGIN
+    SET NOCOUNT ON;
+    SELECT CustomerID, CustomerName, City
+    FROM Customers
+    WHERE City = @City;
+END;
+GO
+To execute:
+
+sql
+EXEC GetCustomerByCity @City = 'London';
