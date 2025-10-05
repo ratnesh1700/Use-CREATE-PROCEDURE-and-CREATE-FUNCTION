@@ -1,0 +1,14 @@
+sql
+DELIMITER //
+CREATE FUNCTION GetCustomerName(customerID INT)
+RETURNS VARCHAR(100)
+BEGIN
+    DECLARE custName VARCHAR(100);
+    SELECT CustomerName INTO custName FROM Customers WHERE CustomerID = customerID;
+    RETURN custName;
+END //
+DELIMITER ;
+To use in a query:
+
+sql
+SELECT GetCustomerName(1);
